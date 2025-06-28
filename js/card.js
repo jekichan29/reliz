@@ -4,6 +4,7 @@ let orderBtn = document.querySelector("#orderBtn")
 let orderSection = document.querySelector(".order")
 
 
+
 function get_item(item) {
     return `<div class = "cart-item">
         <h4 class="cart-item-title">${item.title}</h4>

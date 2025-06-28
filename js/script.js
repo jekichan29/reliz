@@ -149,11 +149,11 @@ const scoreDisplay = document.getElementById('score');
 const startGameBtn = document.getElementById('startGameBtn');
 
 const fruitImages = [
-    "https://cdn.pixabay.com/photo/2017/02/12/16/41/fruit-2068230_64.png",
-    "https://cdn.pixabay.com/photo/2016/03/05/19/02/apples-1238250_64.png",
-    "https://cdn.pixabay.com/photo/2016/04/05/11/38/banana-1306043_64.png",
-    "https://cdn.pixabay.com/photo/2018/05/10/21/10/fruit-3390276_64.png",
-    "https://cdn.pixabay.com/photo/2017/06/02/18/24/mango-2365193_64.png"
+    "./img/apple-svgrepo-com.svg",
+    "./img/banana-svgrepo-com.svg",
+    "./img/orange-svgrepo-com.svg",
+    "./img/watermelon-part-4-svgrepo-com.svg",
+    "./img/strawberry-svgrepo-com.svg"
 ];
 
 let gameInterval;
@@ -251,14 +251,14 @@ document.querySelectorAll('button').forEach(btn => {
     });
 });
 
-// === Плавне прокручування (якщо є меню з якірними посиланнями) ===
+// === Плавне прокручування ===
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
     });
 });
 
@@ -268,4 +268,14 @@ const fadeEls = document.querySelectorAll('.fade-on-scroll');
 function checkFade() {
     const triggerBottom = window.innerHeight * 0.9;
     fadeEls.forEach(el => {
-        const elTop = el.getBoundingClientRect().
+        const elTop = el.getBoundingClientRect().top;
+        if (elTop < triggerBottom) {
+            el.classList.add('visible');
+        } else {
+            el.classList.remove('visible');
+        }
+    });
+}
+
+window.addEventListener('scroll', checkFade);
+window.addEventListener('load', checkFade);

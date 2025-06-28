@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap');
 
-
 html {
     font-size: 18px;
+    scroll-behavior: smooth;
 }
 
-/* Загальні стилі */
 * {
     box-sizing: border-box;
 }
@@ -44,10 +43,6 @@ nav ul {
     font-size: 1.1rem;
 }
 
-nav ul li {
-    margin: 0;
-}
-
 nav ul li a {
     color: white;
     text-decoration: none;
@@ -84,7 +79,6 @@ h2 {
     user-select: text;
 }
 
-/* Текст і списки */
 p,
 ul,
 ol {
@@ -101,7 +95,6 @@ ol li {
     margin-bottom: 10px;
 }
 
-/* Таблиці */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -126,7 +119,6 @@ tbody tr:nth-child(even) {
     background-color: #fff1e6;
 }
 
-/* Кнопки */
 button {
     background-color: #ff704d;
     color: white;
@@ -149,7 +141,6 @@ button:hover:not(:disabled) {
     background-color: #d94f4f;
 }
 
-/* Функціональні блоки */
 .fun-fact {
     background-color: #fff2cc;
     border-left: 8px solid #ff704d;
@@ -182,7 +173,6 @@ textarea:focus {
     outline: none;
 }
 
-/* Галерея */
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -205,7 +195,6 @@ textarea:focus {
     box-shadow: 0 10px 25px rgba(217, 79, 79, 0.5);
 }
 
-/* Квіз */
 #quiz-container {
     background: #fff0e6;
     padding: 20px 30px;
@@ -255,7 +244,6 @@ textarea:focus {
     text-align: center;
 }
 
-/* Гра */
 #game-area {
     width: 100%;
     max-width: 700px;
@@ -283,16 +271,15 @@ textarea:focus {
     transform: scale(1.2);
 }
 
-/* Анімації появи */
-.fade-in {
+.fade-on-scroll {
     opacity: 0;
-    animation: fadeIn 1.3s ease forwards;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+.fade-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 footer {
