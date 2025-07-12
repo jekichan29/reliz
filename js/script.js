@@ -24,32 +24,32 @@ factBtn.addEventListener('click', () => {
 const quizData = [
     {
         question: "Який фрукт містить найбільше вітаміну C?",
-        answers: ["Яблуко", "Ківі", "Банан", "Апельсин"],
-        correct: 1
+        answers: ["Ківі", "Яблуко", "Банан", "Апельсин"],
+        correct: 0
     },
     {
         question: "Який фрукт називають 'королем фруктів'?",
-        answers: ["Манго", "Ананас", "Гранат", "Персик"],
-        correct: 0
+        answers: ["Ананас", "Манго", "Гранат", "Персик"],
+        correct: 1
     },
     {
         question: "Який фрукт має зовнішні насіння?",
-        answers: ["Полуниця", "Гранат", "Виноград", "Ківі"],
-        correct: 0
+        answers: ["Ківі", "Гранат", "Виноград", "Полуниця"],
+        correct: 3
     },
     {
         question: "Який фрукт містить фермент бромелайн?",
-        answers: ["Ананас", "Манго", "Яблуко", "Банан"],
-        correct: 0
+        answers: ["Яблуко", "Манго", "Ананас", "Банан"],
+        correct: 2
     },
     {
         question: "Який фрукт багатий калієм?",
-        answers: ["Банан", "Апельсин", "Персик", "Ківі"],
+        answers: ["Ківі", "Апельсин", "Персик", "Банан"],
         correct: 0
     }
 ];
 
-let currentQuiz = 0;
+let currentQuiz = -1;
 let score = 0;
 
 const questionEl = document.getElementById('question');
@@ -153,7 +153,9 @@ const fruitImages = [
     "./img/banana-svgrepo-com.svg",
     "./img/orange-svgrepo-com.svg",
     "./img/watermelon-part-4-svgrepo-com.svg",
-    "./img/strawberry-svgrepo-com.svg"
+    "./img/strawberry-svgrepo-com.svg",
+    "./img/grape-svgrepo-com.svg",
+    "./img/cherry-svgrepo-com.svg"
 ];
 
 let gameInterval;
@@ -194,7 +196,7 @@ function startGame() {
 
     gameInterval = setInterval(() => {
         createFruit();
-    }, 700);
+    }, 375);
 
     setTimeout(() => {
         clearInterval(gameInterval);
